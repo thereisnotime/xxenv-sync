@@ -56,9 +56,9 @@ function xxenv-sync() {
 		echo -ne "	cp \"$file\" \"$file.backup.\$(date +%s).env\"\n"
 	fi
 	fileContent=$(cat "$file" | base64 -w 0)
-	echo -ne "	_file=\"$file\"; mkdir -p \"\$(dirname \$_file)\"; echo \"$fileContent\" | base64 -d >| \"\$_file\"\n"
+	echo -ne "	_file=\"$file\"; mkdir -p \"\$(dirname \$_file)\"; echo \"$fileContent\" | base64 -d >| \"\$_file\";\n"
   done
-  echo "}"
+  echo "};"
   echo -ne "xxenv-paste\n\n"
   echo -ne "${BBlue}======= Metadata =======${NC}\n"
   local _total_env_file_lines
@@ -70,6 +70,8 @@ function xxenv-sync() {
   echo -ne "Folder path: ${BRed}$(pwd)${NC}\n"
 }
 ```
+
+![screenshot01](assets/screenshot01.png)
 
 After that `cd` into a repository (or just a folder) of your choice and run:
 
@@ -89,6 +91,8 @@ function xxenv-paste () {
 xxenv-paste
 ```
 
+![screenshot02](assets/screenshot02.png)
+
 ## Usage - Windows
 
 ```bash
@@ -103,3 +107,4 @@ xxenv-paste
 - [ ] Add support for other shells (zsh, fish, etc).
 - [ ] Add parameter for interactive input.
 - [ ] Add parameter for single output in base with encode and compress.
+
