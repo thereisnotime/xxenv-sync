@@ -102,3 +102,4 @@ xxenv-paste
 - [ ] Full POSIX compliance.
 - [ ] Add support for other shells (zsh, fish, etc).
 - [ ] Add parameter for interactive input.
+- [ ] Add parameter for single output in base with encode and compress.
